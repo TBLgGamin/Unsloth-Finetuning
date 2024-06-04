@@ -66,15 +66,9 @@ Save the train.py script and run it:
 python3 train.py
 ```
 
-## Follow the Prompts
-The script will recommend a model based on your system resources.
-You can choose to use the recommended model or specify a different one.
-Enter the name of the dataset from Hugging Face to use for fine-tuning.
-Model Fine-Tuning
+The script will load and preprocess the dataset, fine-tune the model, and save the fine-tuned model.
 
-The script will load and preprocess the dataset, fine-tune the model, and save the fine-tuned model to the ./fine_tuned_model directory.
-
-Notes
+### Notes
 Ensure you have sufficient GPU memory for the model you choose.
 Adjust the training parameters in the train.py script as needed.
 
