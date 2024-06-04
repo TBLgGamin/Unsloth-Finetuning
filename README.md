@@ -58,6 +58,11 @@ pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps trl peft accelerate bitsandbytes
 pip install colorama
 ```
+## Download the script
+Download the script for usage (create a folder for the code first)
+``` bash
+git clone https://github.com/TBLgGamin/Unsloth-Finetuning.git
+```
 
 ## Usage
 Run the Training Script
@@ -69,8 +74,8 @@ python3 train.py
 The script will load and preprocess the dataset, fine-tune the model, and save the fine-tuned model.
 
 ### Notes
-Ensure you have sufficient GPU memory for the model you choose.
-Adjust the training parameters in the train.py script as needed.
+- Ensure you have sufficient GPU memory for the model you choose.
+- Adjust the training parameters in the train.py script as needed.
 
 ### Additional Notes:
 - Ensure that you have installed all the required dependencies and that your environment is correctly set up.
