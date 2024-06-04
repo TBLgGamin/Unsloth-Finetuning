@@ -50,6 +50,12 @@ conda create --name unsloth_env python=3.10
 conda activate unsloth_env
 ```
 
+## Install llama.cpp for inference
+Create and activate a new Conda environment:
+``` bash
+pip install llama-cpp-python
+```
+
 ## Install Unsloth and Dependencies
 Install Unsloth and other required packages:
 ``` bash
@@ -71,7 +77,17 @@ Save the train.py script and run it:
 python3 train.py
 ```
 
-The script will load and preprocess the dataset, fine-tune the model, and save the fine-tuned model.
+After training you can save the model to a GGUF file so it becomes useable
+``` bash
+python3 save.py
+```
+
+After saving you can talk to the model
+Just edit the model path parameter in talk.py to the name of your saved model
+``` bash
+python3 talk.py
+```
+
 
 ### Notes
 - Ensure you have sufficient GPU memory for the model you choose.

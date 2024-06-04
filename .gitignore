@@ -5,6 +5,7 @@
 !.gitignore
 !README.md
 !train.py
+!save.py
 !talk.py
 
 # Ensure directories are not ignored so that the specified files can be tracked
