@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!README.md
+!train.py
+!talk.py
+
+# Ensure directories are not ignored so that the specified files can be tracked
+!*/
