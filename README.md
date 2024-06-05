@@ -50,20 +50,15 @@ conda create --name unsloth_env python=3.10
 conda activate unsloth_env
 ```
 
-## Install llama.cpp for inference
-Create and activate a new Conda environment:
-``` bash
-pip install llama-cpp-python
-```
-
 ## Install Unsloth and Dependencies
 Install Unsloth and other required packages:
 ``` bash
 conda install pytorch-cuda=12.1 pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers
 pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps trl peft accelerate bitsandbytes
-pip install colorama
+pip install colorama python-dotenv llama-cpp-python
 ```
+
 ## Download the script
 Download the script for usage (create a folder for the code first)
 ``` bash
@@ -77,13 +72,12 @@ Save the train.py script and run it:
 python3 train.py
 ```
 
-After training you can save the model to a GGUF file so it becomes useable
+After training, you can save the model to a GGUF file, so it becomes usable
 ``` bash
 python3 save.py
 ```
 
-After saving you can talk to the model
-Just edit the model path parameter in talk.py to the name of your saved model
+After saving, you can talk to the model
 ``` bash
 python3 talk.py
 ```
