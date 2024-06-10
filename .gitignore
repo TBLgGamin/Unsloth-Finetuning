@@ -7,6 +7,7 @@
 !train.py
 !save.py
 !talk.py
+!.env
 
 # Ensure directories are not ignored so that the specified files can be tracked
 !*/

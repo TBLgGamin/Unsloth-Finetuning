@@ -15,9 +15,6 @@ DEFAULT_MODEL_NAME = os.getenv("DEFAULT_MODEL_NAME", "model")
 DEFAULT_DATASET_NAME = os.getenv("DEFAULT_DATASET_NAME", "TBLgGamin/sun_is_blue")
 DEFAULT_TRAINING_STEPS = int(os.getenv("DEFAULT_TRAINING_STEPS", 60))
 
-# Global variable to store the final model name
-final_model_name = None
-
 # Introduction styling with gradient text
 def gradient_text(text):
     colors = [
@@ -76,7 +73,7 @@ def get_user_inputs():
     dataset_name = input(f"\nEnter the HuggingFace dataset name (default: {DEFAULT_DATASET_NAME}): ") or DEFAULT_DATASET_NAME
 
     global final_model_name
-    final_model_name = input(f"\nEnter the final model name (default: {DEFAULT_MODEL_NAME}): ") or DEFAULT_MODEL_NAME
+    final_model_name = "outputs"
 
     print("\nRecommended training steps for use cases:")
     print("1. Testing: 50-60 steps")
@@ -116,20 +113,20 @@ def load_and_prepare_model(model_name):
     return model, tokenizer
 
 def prepare_dataset(tokenizer, dataset_name):
-    alpaca_prompt = """Below is a question and its corresponding answer. Write a response that appropriately completes the request.
+    alpaca_prompt = """Below is a description of a process and its corresponding bottlenecks. Identify the bottlenecks in the process.
 
-    ### Question:
+    ### Process Description:
     {}
 
-    ### Answer:
+    ### Bottlenecks:
     {}"""
 
     EOS_TOKEN = tokenizer.eos_token
 
     def formatting_prompts_func(examples):
-        questions = examples["question"]
-        answers = examples["answer"]
-        texts = [alpaca_prompt.format(q, a) + EOS_TOKEN for q, a in zip(questions, answers)]
+        descriptions = examples["Details"]
+        bottlenecks = examples["Bottlenecks"]
+        texts = [alpaca_prompt.format(d, b) + EOS_TOKEN for d, b in zip(descriptions, bottlenecks)]
         return {"text": texts}
 
     dataset = load_dataset(dataset_name, split="train")
