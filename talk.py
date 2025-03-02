@@ -1,6 +1,10 @@
 from llama_cpp import Llama
+from train import get_final_model_name
 
-model_path = r"archive/20240609-121638/model-unsloth.Q4_K_M.gguf"
+# Get the final model name without running the entire training process
+final_model_name = get_final_model_name()
+
+model_path = f"{final_model_name}"
 
 # Instantiate model from downloaded file
 llm = Llama(

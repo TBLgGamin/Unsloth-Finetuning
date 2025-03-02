@@ -82,14 +82,6 @@ After saving, you can talk to the model
 python3 talk.py
 ```
 
-## Navigation of outputs
-The code produces a couple of files. 
-The files used to make the gguf file (with which you chat).
-Are stored in 
-``` bash
-archive/(date/time)
-```
-The final gguf file can be found in the same archive
 
 ### Notes
 - Ensure you have sufficient GPU memory for the model you choose.
